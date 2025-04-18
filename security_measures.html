@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security Measures - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link active" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Security Measures</h2>
+        <form>
+          <!-- Measure Details & Description -->
+          <h4>Measure Details & Description</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Measure ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="measure_name" class="form-label">Measure Name</label>
+            <input type="text" class="form-control" id="measure_name" placeholder="Name of the measure"
+              value="Corporate Firewall Policy" required>
+          </div>
+          <div class="mb-3">
+            <label for="measure_type" class="form-label">Measure Type</label>
+            <select class="form-select" id="measure_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Technical</option>
+              <option>Organizational</option>
+              <option>Policy-based</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="implementation_status" class="form-label">Implementation Status</label>
+            <select class="form-select" id="implementation_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Not Implemented</option>
+              <option>In Progress</option>
+              <option>Fully Implemented</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="2" placeholder="Description of the control"
+              required>Firewall rules and configurations to secure the corporate network.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="scope" class="form-label">Scope</label>
+            <select class="form-select" id="scope" required>
+              <option value="" disabled selected>Select scope</option>
+              <option>Company-wide</option>
+              <option>Department</option>
+              <option>Single Asset</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="applies_to" class="form-label">Applies To</label>
+            <select class="form-select" id="applies_to" required>
+              <option value="" disabled selected>Select target</option>
+              <option>Network</option>
+              <option>Endpoint</option>
+              <option>Application</option>
+              <option>User Accounts</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="document_reference" class="form-label">Supporting Document (PDF)</label>
+            <input type="file" class="form-control" id="document_reference" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="implementation_date" class="form-label">Implementation Date</label>
+            <input type="date" class="form-control" id="implementation_date" value="2024-01-15" required>
+          </div>
+          <div class="mb-3">
+            <label for="last_reviewed_at" class="form-label">Last Reviewed Date</label>
+            <input type="date" class="form-control" id="last_reviewed_at" value="2025-01-15" required>
+          </div>
+          <div class="mb-3">
+            <label for="responsible_person" class="form-label">Responsible Person/Role</label>
+            <input type="text" class="form-control" id="responsible_person" placeholder="Individual or role responsible"
+              value="IT Security Manager" required>
+          </div>
+
+          <!-- Optional/Extended Fields -->
+          <h4>Optional Fields</h4>
+          <div class="mb-3">
+            <label for="tool_or_solution_used" class="form-label">Tool/Solution Used</label>
+            <input type="text" class="form-control" id="tool_or_solution_used"
+              placeholder="Name of tool or vendor (if applicable)">
+          </div>
+          <div class="mb-3">
+            <label for="renewal_required" class="form-label">Renewal Required?</label>
+            <select class="form-select" id="renewal_required">
+              <option value="" disabled selected>Select an option</option>
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="next_review_due" class="form-label">Next Review Due</label>
+            <input type="date" class="form-control" id="next_review_due" value="2026-01-15">
+          </div>
+          <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea class="form-control" id="notes" rows="2"
+              placeholder="Additional notes or changes">Annual review scheduled.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

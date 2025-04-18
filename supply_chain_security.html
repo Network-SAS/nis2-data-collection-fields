@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Supply Chain Security - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link active" href="supply_chain_security.html">Supply Chain Security</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Supply Chain & Third-Party Security</h2>
+        <form>
+          <!-- Vendor Details -->
+          <h4>Vendor Details</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Record ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="vendor_name" class="form-label">Vendor Name</label>
+            <input type="text" class="form-control" id="vendor_name" placeholder="Name of vendor" value="ABC Cloud Ltd."
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="service_provided" class="form-label">Service Provided</label>
+            <input type="text" class="form-control" id="service_provided" placeholder="Service description"
+              value="SaaS application hosting" required>
+          </div>
+          <div class="mb-3">
+            <label for="has_system_access" class="form-label">Has System Access?</label>
+            <select class="form-select" id="has_system_access" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="data_shared" class="form-label">Data Shared</label>
+            <select class="form-select" id="data_shared" required>
+              <option value="" disabled selected>Select data type</option>
+              <option>Personal Data</option>
+              <option>Financial Data</option>
+              <option>Credentials</option>
+              <option>None</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="criticality_level" class="form-label">Criticality Level</label>
+            <select class="form-select" id="criticality_level" required>
+              <option value="" disabled selected>Select level</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="contract_in_place" class="form-label">Contract in Place?</label>
+            <select class="form-select" id="contract_in_place" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="contract_review_date" class="form-label">Last Contract Review Date</label>
+            <input type="date" class="form-control" id="contract_review_date" value="2025-01-10">
+          </div>
+
+          <!-- Security Assurance -->
+          <h4>Security Assurance</h4>
+          <div class="mb-3">
+            <label for="security_certifications" class="form-label">Security Certifications</label>
+            <select class="form-select" id="security_certifications" multiple>
+              <option selected>ISO 27001</option>
+              <option selected>SOC 2</option>
+              <option>NIST</option>
+              <option>None</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="undergoes_security_audits" class="form-label">Undergoes Security Audits?</label>
+            <select class="form-select" id="undergoes_security_audits" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="last_audit_date" class="form-label">Last Audit Date</label>
+            <input type="date" class="form-control" id="last_audit_date" value="2024-08-15">
+          </div>
+          <div class="mb-3">
+            <label for="incident_history" class="form-label">Incident History</label>
+            <textarea class="form-control" id="incident_history" rows="2"
+              placeholder="Past security incidents">None reported to date.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="risk_mitigation_summary" class="form-label">Risk Mitigation Summary</label>
+            <textarea class="form-control" id="risk_mitigation_summary" rows="2"
+              placeholder="Internal measures to mitigate risk">Regular security assessments and data backups in place.</textarea>
+          </div>
+
+          <!-- Compliance Check -->
+          <h4>Compliance Check</h4>
+          <div class="mb-3">
+            <label for="supply_chain_policy_applies" class="form-label">Supply Chain Policy Applies?</label>
+            <select class="form-select" id="supply_chain_policy_applies" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="responsible_officer" class="form-label">Responsible Officer/Team</label>
+            <input type="text" class="form-control" id="responsible_officer" placeholder="Accountable person or team"
+              value="Vendor Management Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="monitoring_frequency" class="form-label">Monitoring Frequency</label>
+            <select class="form-select" id="monitoring_frequency" required>
+              <option value="" disabled selected>Select frequency</option>
+              <option>Monthly</option>
+              <option>Quarterly</option>
+              <option>Yearly</option>
+              <option>Ad-hoc</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_required" class="form-label">Follow-Up Required?</label>
+            <select class="form-select" id="follow_up_required" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="next_review_due" class="form-label">Next Review Due</label>
+            <input type="date" class="form-control" id="next_review_due" value="2025-09-01">
+          </div>
+
+          <!-- Uploads -->
+          <h4>Uploads</h4>
+          <div class="mb-3">
+            <label for="contract_document" class="form-label">Contract Document (PDF)</label>
+            <input type="file" class="form-control" id="contract_document" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="security_assurance_doc" class="form-label">Security Assurance Doc (PDF)</label>
+            <input type="file" class="form-control" id="security_assurance_doc" accept=".pdf">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>Pending</option>
+              <option>Missing</option>
+            </select>
+          </div>
+
+          <!-- Notes / Comments -->
+          <h4>Notes / Comments</h4>
+          <div class="mb-3">
+            <label for="internal_notes" class="form-label">Internal Notes</label>
+            <textarea class="form-control" id="internal_notes" rows="2"
+              placeholder="Internal comments or escalation notes">Next audit scheduled for Q3 2025.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit Logs & Monitoring - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link active" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Audit Logs & Monitoring</h2>
+        <form>
+          <!-- Log Details -->
+          <h4>Log Details</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Log System ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="logging_scope" class="form-label">Logging Scope</label>
+            <select class="form-select" id="logging_scope" required>
+              <option value="" disabled selected>Select scope</option>
+              <option>User Activity</option>
+              <option>Network</option>
+              <option>Application</option>
+              <option>System</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="log_source_system" class="form-label">Log Source System</label>
+            <input type="text" class="form-control" id="log_source_system" placeholder="System name or ID"
+              value="Windows Active Directory" required>
+          </div>
+          <div class="mb-3">
+            <label for="log_retention_period" class="form-label">Log Retention Period</label>
+            <input type="text" class="form-control" id="log_retention_period" placeholder="Retention (e.g., 90 days)"
+              value="90 days" required>
+          </div>
+          <div class="mb-3">
+            <label for="storage_location" class="form-label">Storage Location</label>
+            <select class="form-select" id="storage_location" required>
+              <option value="" disabled selected>Select location</option>
+              <option>On-prem</option>
+              <option>Cloud</option>
+              <option>SIEM</option>
+              <option>Encrypted Disk</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="access_control_applied" class="form-label">Access Control Applied?</label>
+            <select class="form-select" id="access_control_applied" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Monitoring System -->
+          <h4>Monitoring System</h4>
+          <div class="mb-3">
+            <label for="monitoring_tool_name" class="form-label">Monitoring Tool Name</label>
+            <input type="text" class="form-control" id="monitoring_tool_name" placeholder="Tool (e.g., Splunk, Graylog)"
+              value="Graylog" required>
+          </div>
+          <div class="mb-3">
+            <label for="real_time_monitoring" class="form-label">Real-Time Monitoring?</label>
+            <select class="form-select" id="real_time_monitoring" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          < ```html <div class="mb-3">
+            <label for="alerting_enabled" class="form-label">Alerting Enabled?</label>
+            <select class="form-select" id="alerting_enabled" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+    </div>
+    <div class="mb-3">
+      <label for="alert_channels" class="form-label">Alert Channels</label>
+      <select class="form-select" id="alert_channels" multiple required>
+        <option selected>Email</option>
+        <option selected>Dashboard</option>
+        <option>SMS</option>
+        <option>API</option>
+        <option>SOC</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="incident_linked" class="form-label">Linked to Incident Response?</label>
+      <select class="form-select" id="incident_linked" required>
+        <option value="" disabled selected>Select an option</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="log_integrity_check" class="form-label">Log Integrity Check</label>
+      <select class="form-select" id="log_integrity_check" required>
+        <option value="" disabled selected>Select method</option>
+        <option>Hashing</option>
+        <option>WORM storage</option>
+        <option>Not applied</option>
+      </select>
+    </div>
+
+    <!-- Review & Governance -->
+    <h4>Review & Governance</h4>
+    <div class="mb-3">
+      <label for="log_review_frequency" class="form-label">Log Review Frequency</label>
+      <select class="form-select" id="log_review_frequency" required>
+        <option value="" disabled selected>Select frequency</option>
+        <option>Daily</option>
+        <option>Weekly</option>
+        <option>Monthly</option>
+        <option>Ad-hoc</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="last_log_reviewed_at" class="form-label">Last Log Reviewed</label>
+      <input type="date" class="form-control" id="last_log_reviewed_at" value="2025-04-10" required>
+    </div>
+    <div class="mb-3">
+      <label for="reviewed_by" class="form-label">Reviewed By</label>
+      <input type="text" class="form-control" id="reviewed_by" placeholder="Reviewer (name or role)"
+        value="IT Security Analyst" required>
+    </div>
+    <div class="mb-3">
+      <label for="follow_up_required" class="form-label">Follow-Up Required?</label>
+      <select class="form-select" id="follow_up_required" required>
+        <option value="" disabled selected>Select an option</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="next_review_due" class="form-label">Next Review Due</label>
+      <input type="date" class="form-control" id="next_review_due" value="2025-07-10">
+    </div>
+
+    <!-- Uploads -->
+    <h4>Uploads</h4>
+    <div class="mb-3">
+      <label for="logging_policy_doc" class="form-label">Logging Policy Document (PDF)</label>
+      <input type="file" class="form-control" id="logging_policy_doc" accept=".pdf" required>
+    </div>
+    <div class="mb-3">
+      <label for="sample_alert_export" class="form-label">Sample Alert Export (PDF)</label>
+      <input type="file" class="form-control" id="sample_alert_export" accept=".pdf">
+    </div>
+    <div class="mb-3">
+      <label for="certificate_status" class="form-label">Certificate Status</label>
+      <select class="form-select" id="certificate_status" required>
+        <option value="" disabled selected>Select status</option>
+        <option>Verified</option>
+        <option>Not Validated</option>
+        <option>Missing Upload</option>
+      </select>
+    </div>
+
+    <!-- Internal Notes -->
+    <h4>Internal Notes</h4>
+    <div class="mb-3">
+      <label for="internal_notes" class="form-label">Notes (Optional)</label>
+      <textarea class="form-control" id="internal_notes" rows="2"
+        placeholder="Notes, exceptions, or audit comments">90 days retention on encrypted storage. Real-time monitoring with email alerts for failed logins.</textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    </main>
+  </div>
+  </div>
+</body>
+
+</html>

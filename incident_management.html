@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Incident Management - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link active" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Incident Management</h2>
+        <form>
+          <!-- Incident Details & Description -->
+          <h4>Incident Details & Description</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Incident ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="incident_title" class="form-label">Incident Title</label>
+            <input type="text" class="form-control" id="incident_title" placeholder="Short title"
+              value="Phishing attack on finance users" required>
+          </div>
+          <div class="mb-3">
+            <label for="incident_description" class="form-label">Incident Description</label>
+            <textarea class="form-control" id="incident_description" rows="3" placeholder="Detailed incident scenario"
+              required>Finance department users received phishing emails and entered credentials.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="incident_type" class="form-label">Incident Type</label>
+            <select class="form-select" id="incident_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Malware</option>
+              <option>Phishing</option>
+              <option>Unauthorized Access</option>
+              <option>DoS</option>
+              <option>Data Leak</option>
+              <option>Misconfiguration</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="date_detected" class="form-label">Date Detected</label>
+            <input type="date" class="form-control" id="date_detected" value="2025-02-20" required>
+          </div>
+          <div class="mb-3">
+            <label for="date_resolved" class="form-label">Date Resolved</label>
+            <input type="date" class="form-control" id="date_resolved" value="2025-02-21">
+          </div>
+          <div class="mb-3">
+            <label for="affected_asset" class="form-label">Affected Asset</label>
+            <input type="text" class="form-control" id="affected_asset" placeholder="System affected"
+              value="Corporate Mail Server" required>
+          </div>
+          <div class="mb-3">
+            <label for="business_impact_area" class="form-label">Business Impact Area</label>
+            <select class="form-select" id="business_impact_area" required>
+              <option value="" disabled selected>Select area</option>
+              <option>Finance</option>
+              <option>HR</option>
+              <option>IT</option>
+              <option>Operations</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <!-- Response Information -->
+          <h4>Response Information</h4>
+          <div class="mb-3">
+            <label for="reported_by" class="form-label">Reported By</label>
+            <input type="text" class="form-control" id="reported_by" placeholder="Reporter name"
+              value="Helpdesk Analyst" required>
+          </div>
+          <div class="mb-3">
+            <label for="response_started_at" class="form-label">Response Started At</label>
+            <input type="datetime-local" class="form-control" id="response_started_at" value="2025-02-20T09:00"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="resolved_by" class="form-label">Resolved By</label>
+            <input type="text" class="form-control" id="resolved_by" placeholder="Person/team who resolved"
+              value="IT Security Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="response_summary" class="form-label">Response Summary</label>
+            <textarea class="form-control" id="response_summary" rows="2" placeholder="Actions taken"
+              required>Blocked phishing sender, reset affected user passwords, notified all staff.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="external_notified" class="form-label">External Authority Notified?</label>
+            <select class="form-select" id="external_notified" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="authority_name" class="form-label">Authority Name (if notified)</label>
+            <input type="text" class="form-control" id="authority_name" placeholder="e.g., DPA or CERT" value="CERT">
+          </div>
+          <div class="mb-3">
+            <label for="notification_date" class="form-label">Notification Date</label>
+            <input type="date" class="form-control" id="notification_date" value="2025-02-21">
+          </div>
+
+          <!-- Incident Context -->
+          <h4>Incident Context</h4>
+          <div class="mb-3">
+            <label for="service_disrupted" class="form-label">Critical Service Disrupted?</label>
+            <select class="form-select" id="service_disrupted" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="downtime_duration" class="form-label">Downtime Duration (hours)</label>
+            <input type="number" class="form-control" id="downtime_duration" placeholder="Hours" value="2">
+          </div>
+          <div class="mb-3">
+            <label for="user_data_involved" class="form-label">User Data Involved?</label>
+            <select class="form-select" id="user_data_involved" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="incident_status" class="form-label">Incident Status</label>
+            <select class="form-select" id="incident_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Open</option>
+              <option>Resolved</option>
+              <option>Under Investigation</option>
+              <option>Archived</option>
+            </select>
+          </div>
+
+          <!-- Uploads -->
+          <h4>Incident Reports & Evidence</h4>
+          <div class="mb-3">
+            <label for="incident_report" class="form-label">Incident Report (PDF)</label>
+            <input type="file" class="form-control" id="incident_report" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="evidence_file" class="form-label">Evidence File</label>
+            <input type="file" class="form-control" id="evidence_file">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>Pending</option>
+              <option>Invalid</option>
+            </select>
+          </div>
+
+          <!-- Additional Tracking -->
+          <h4>Additional Tracking</h4>
+          <div class="mb-3">
+            <label for="follow_up_required" class="form-label">Follow-Up Required?</label>
+            <select class="form-select" id="follow_up_required" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_notes" class="form-label">Follow-Up Notes</label>
+            <textarea class="form-control" id="follow_up_notes" rows="2"
+              placeholder="Post-incident actions">Plan phishing awareness training for Finance team.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Risk & Impact Assessment - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="risk_impact_assessment.html">Risk & Impact
+              Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Risk & Impact Assessment</h2>
+        <form>
+          <!-- Risk Details & Description -->
+          <h4>Risk Details & Description</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Risk ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Risk Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Name of the risk"
+              value="Critical VPN exposure" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Risk Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Detailed risk scenario"
+              required>Unpatched VPN server could allow unauthorized network access.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="asset_affected" class="form-label">Asset Affected</label>
+            <input type="text" class="form-control" id="asset_affected" placeholder="System or component"
+              value="VPN Gateway 01" required>
+          </div>
+          <div class="mb-3">
+            <label for="business_area" class="form-label">Business Area</label>
+            <select class="form-select" id="business_area" required>
+              <option value="" disabled selected>Select area</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>IT</option>
+              <option>Operations</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="threat_origin" class="form-label">Threat Origin</label>
+            <select class="form-select" id="threat_origin" required>
+              <option value="" disabled selected>Select origin</option>
+              <option>External</option>
+              <option>Internal</option>
+              <option>Third-party</option>
+              <option>Environmental</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="reported_at" class="form-label">Reported At</label>
+            <input type="date" class="form-control" id="reported_at" value="2025-03-10" required>
+          </div>
+          <div class="mb-3">
+            <label for="reported_by" class="form-label">Reported By</label>
+            <input type="text" class="form-control" id="reported_by" placeholder="Reporter name or department"
+              value="Network Security Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Open</option>
+              <option>Under Review</option>
+              <option>Mitigated</option>
+              <option>Archived</option>
+            </select>
+          </div>
+
+          <!-- Contextual Information -->
+          <h4>Contextual Information</h4>
+          <div class="mb-3">
+            <label for="process_affected" class="form-label">Process Affected</label>
+            <input type="text" class="form-control" id="process_affected" placeholder="Business process at risk"
+              value="Remote employee access" required>
+          </div>
+          <div class="mb-3">
+            <label for="impact_type" class="form-label">Impact Type</label>
+            <select class="form-select" id="impact_type" multiple required>
+              <option selected>Confidentiality</option>
+              <option selected>Integrity</option>
+              <option>Availability</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="impact_scope" class="form-label">Impact Scope</label>
+            <select class="form-select" id="impact_scope" required>
+              <option value="" disabled selected>Select scope</option>
+              <option>Local</option>
+              <option>Department</option>
+              <option>Company-wide</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="legal_exposure" class="form-label">Legal Exposure</label>
+            <select class="form-select" id="legal_exposure" multiple required>
+              <option selected>GDPR</option>
+              <option selected>NIS2</option>
+              <option>Internal Policy</option>
+              <option>ISO 27001</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="service_disruption" class="form-label">Service Disruption?</label>
+            <select class="form-select" id="service_disruption" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Mitigation Plan -->
+          <h4>Mitigation Plan</h4>
+          <div class="mb-3">
+            <label for="existing_controls" class="form-label">Existing Controls</label>
+            <textarea class="form-control" id="existing_controls" rows="2" placeholder="Current measures in place"
+              required>Firewall and intrusion detection in place.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="mitigation_action" class="form-label">Mitigation Action</label>
+            <textarea class="form-control" id="mitigation_action" rows="2" placeholder="Planned mitigation steps"
+              required>Apply VPN security patch and enforce multi-factor authentication.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="responsible_team" class="form-label">Responsible Team</label>
+            <input type="text" class="form-control" id="responsible_team" placeholder="Team or person responsible"
+              value="IT Security Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="target_resolution_date" class="form-label">Target Resolution Date</label>
+            <input type="date" class="form-control" id="target_resolution_date" value="2025-04-30" required>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_needed" class="form-label">Follow-Up Needed?</label>
+            <select class="form-select" id="follow_up_needed" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Certificate & Upload -->
+          <h4>Certificate & Upload</h4>
+          <div class="mb-3">
+            <label for="supporting_document" class="form-label">Supporting Document (PDF)</label>
+            <input type="file" class="form-control" id="supporting_document" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="control_evidence" class="form-label">Control Evidence (optional)</label>
+            <input type="file" class="form-control" id="control_evidence" accept=".pdf">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Pending</option>
+              <option>Confirmed</option>
+              <option>Invalid</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <h4>Notes</h4>
+          <div class="mb-3">
+            <label for="internal_comments" class="form-label">Internal Comments</label>
+            <textarea class="form-control" id="internal_comments" rows="2"
+              placeholder="Internal tracking notes"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

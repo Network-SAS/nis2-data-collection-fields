@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Computers - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Computers</h2>
+        <form>
+          <!-- Asset Details -->
+          <h4>Asset Details</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Computer ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" value="1001" required>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Device Name/Label</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter device name" value="IT-MBP001"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" class="form-control" id="model" placeholder="e.g., Dell Latitude 7410"
+              value="MacBook Pro 14&quot;" required>
+          </div>
+          <div class="mb-3">
+            <label for="key" class="form-label">Device Key/Serial</label>
+            <input type="text" class="form-control" id="key" placeholder="Serial number or asset code" required>
+          </div>
+          <div class="mb-3">
+            <label for="operating_system" class="form-label">Operating System</label>
+            <select class="form-select" id="operating_system" required>
+              <option value="" disabled selected>Select OS</option>
+              <option>Windows 11 Pro</option>
+              <option>macOS Sonoma</option>
+              <option>Linux (Ubuntu)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="computer_type" class="form-label">Computer Type</label>
+            <select class="form-select" id="computer_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Desktop</option>
+              <option>Laptop</option>
+              <option>Server</option>
+              <option>Thin Client</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="owner_name" class="form-label">Assigned User (optional)</label>
+            <input type="text" class="form-control" id="owner_name" placeholder="Name of assigned user">
+          </div>
+
+          <!-- Lifecycle -->
+          <h4>Lifecycle</h4>
+          <div class="mb-3">
+            <label for="bought_at" class="form-label">Purchase Date</label>
+            <input type="date" class="form-control" id="bought_at" value="2023-07-01" required>
+          </div>
+          <div class="mb-3">
+            <label for="dismissed_at" class="form-label">Retirement Date</label>
+            <input type="date" class="form-control" id="dismissed_at">
+          </div>
+          <div class="mb-3">
+            <label for="usage_status" class="form-label">Usage Status</label>
+            <select class="form-select" id="usage_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>In Use</option>
+              <option>Stored</option>
+              <option>Retired</option>
+              <option>Under Maintenance</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="office" class="form-label">Office/Location</label>
+            <select class="form-select" id="office" required>
+              <option value="" disabled selected>Select office</option>
+              <option>Rome HQ</option>
+              <option>Milan HQ</option>
+              <option>London DC</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="company" class="form-label">Owning Entity</label>
+            <select class="form-select" id="company" required>
+              <option value="" disabled selected>Select company</option>
+              <option>Company A</option>
+              <option>Company B</option>
+            </select>
+          </div>
+
+          <!-- Security Info -->
+          <h4>Security Information</h4>
+          <div class="mb-3">
+            <label for="network_access" class="form-label">Network Access</label>
+            <select class="form-select" id="network_access" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="vpn_enabled" class="form-label">VPN Enabled</label>
+            <select class="form-select" id="vpn_enabled" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="encryption_enabled" class="form-label">Encryption Enabled</label>
+            <select class="form-select" id="encryption_enabled" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="antivirus_installed" class="form-label">Antivirus/EDR Installed</label>
+            <select class="form-select" id="antivirus_installed" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="admin_privileges" class="form-label">User Has Admin Privileges</label>
+            <select class="form-select" id="admin_privileges" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Uploads -->
+          <h4>Uploads</h4>
+          <div class="mb-3">
+            <label for="certificate_file" class="form-label">Compliance Certificate (PDF)</label>
+            <input type="file" class="form-control" id="certificate_file" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="warranty_document" class="form-label">Warranty Document</label>
+            <input type="file" class="form-control" id="warranty_document">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>Missing</option>
+              <option>Expired</option>
+              <option>Pending</option>
+            </select>
+          </div>
+
+          <!-- Additional Tracking -->
+          <h4>Additional Tracking</h4>
+          <div class="mb-3">
+            <label for="notes" class="form-label">Internal Notes</label>
+            <textarea class="form-control" id="notes" rows="3" placeholder="Internal comments or remarks"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="last_updated_at" class="form-label">Last Updated</label>
+            <input type="datetime-local" class="form-control" id="last_updated_at" value="2025-04-18T09:30" disabled>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

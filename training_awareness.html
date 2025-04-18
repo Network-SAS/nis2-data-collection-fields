@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Training & Awareness - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link active" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Training & Awareness</h2>
+        <form>
+          <!-- Training Details -->
+          <h4>Training Details</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Training Record ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="program_title" class="form-label">Program Title</label>
+            <input type="text" class="form-control" id="program_title" placeholder="Training title"
+              value="NIS2 Awareness for Management" required>
+          </div>
+          <div class="mb-3">
+            <label for="training_type" class="form-label">Training Type</label>
+            <select class="form-select" id="training_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Initial Training</option>
+              <option>Refresher</option>
+              <option>Incident Response</option>
+              <option>Role-based</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="target_group" class="form-label">Target Group</label>
+            <input type="text" class="form-control" id="target_group" placeholder="Who was trained"
+              value="Management Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="delivery_method" class="form-label">Delivery Method</label>
+            <select class="form-select" id="delivery_method" required>
+              <option value="" disabled selected>Select method</option>
+              <option>Online</option>
+              <option>In-person</option>
+              <option>Mixed</option>
+              <option>External Provider</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="training_date" class="form-label">Training Date</label>
+            <input type="date" class="form-control" id="training_date" value="2025-02-05" required>
+          </div>
+          <div class="mb-3">
+            <label for="duration_minutes" class="form-label">Duration (minutes)</label>
+            <input type="number" class="form-control" id="duration_minutes" placeholder="Length of training" value="90"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="trainer_name_or_org" class="form-label">Trainer Name/Organization</label>
+            <input type="text" class="form-control" id="trainer_name_or_org" placeholder="Instructor or provider"
+              value="External Consultant" required>
+          </div>
+
+          <!-- Participation -->
+          <h4>Participation</h4>
+          <div class="mb-3">
+            <label for="number_of_attendees" class="form-label">Number of Attendees</label>
+            <input type="number" class="form-control" id="number_of_attendees" placeholder="Total people trained"
+              value="47" required>
+          </div>
+          <div class="mb-3">
+            <label for="completion_percentage" class="form-label">Completion Percentage (%)</label>
+            <input type="number" class="form-control" id="completion_percentage" placeholder="% completed" value="94"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="certificate_issued" class="form-label">Certificates Issued?</label>
+            <select class="form-select" id="certificate_issued" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_required" class="form-label">Follow-Up Scheduled?</label>
+            <select class="form-select" id="follow_up_required" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_date" class="form-label">Follow-Up Date</label>
+            <input type="date" class="form-control" id="follow_up_date" value="2025-09-01">
+          </div>
+
+          <!-- Training Content -->
+          <h4>Training Content</h4>
+          <div class="mb-3">
+            <label for="topics_covered" class="form-label">Topics Covered</label>
+            <select class="form-select" id="topics_covered" multiple required>
+              <option>Phishing</option>
+              <option>Password Hygiene</option>
+              <option>Remote Access</option>
+              <option selected>Social Engineering</option>
+              <option>GDPR</option>
+              <option selected>NIS2 Awareness</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="custom_topics" class="form-label">Custom Topics (if any)</label>
+            <input type="text" class="form-control" id="custom_topics" placeholder="Other topics covered">
+          </div>
+          <div class="mb-3">
+            <label for="training_objectives" class="form-label">Training Objectives</label>
+            <textarea class="form-control" id="training_objectives" rows="2"
+              placeholder="Goal or outcome">Ensure management understands NIS2 responsibilities and reporting procedures.</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="feedback_collected" class="form-label">Feedback Collected?</label>
+            <select class="form-select" id="feedback_collected" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Uploads -->
+          <h4>Uploads</h4>
+          <div class="mb-3">
+            <label for="training_materials" class="form-label">Training Materials (PDF)</label>
+            <input type="file" class="form-control" id="training_materials" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="certificate_template" class="form-label">Certificate Template (PDF)</label>
+            <input type="file" class="form-control" id="certificate_template" accept=".pdf">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>Pending</option>
+              <option>Not Applicable</option>
+            </select>
+          </div>
+
+          <!-- Notes / Tracking -->
+          <h4>Notes / Tracking</h4>
+          <div class="mb-3">
+            <label for="reviewed_by" class="form-label">Reviewed By</label>
+            <input type="text" class="form-control" id="reviewed_by" placeholder="Who approved the training"
+              value="Compliance Officer" required>
+          </div>
+          <div class="mb-3">
+            <label for="internal_notes" class="form-label">Internal Notes</label>
+            <textarea class="form-control" id="internal_notes" rows="2"
+              placeholder="Additional comments">Follow-up session planned for Q3 2025.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

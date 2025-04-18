@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evaluation NIS-2 - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link active" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Evaluation NIS-2</h2>
+        <form>
+          <!-- Overview -->
+          <h4>Overview</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Evaluation Record ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="evaluation_title" class="form-label">Evaluation Title</label>
+            <input type="text" class="form-control" id="evaluation_title" placeholder="Assessment title"
+              value="NIS2 Gap Analysis – Q2" required>
+          </div>
+          <div class="mb-3">
+            <label for="evaluation_period" class="form-label">Period Covered</label>
+            <input type="text" class="form-control" id="evaluation_period" placeholder="e.g., Jan–Mar 2025" required>
+          </div>
+          <div class="mb-3">
+            <label for="evaluation_type" class="form-label">Evaluation Type</label>
+            <select class="form-select" id="evaluation_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Internal Audit</option>
+              <option>External Audit</option>
+              <option>Self-Assessment</option>
+              <option>Gap Analysis</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="company" class="form-label">Company/Unit</label>
+            <select class="form-select" id="company" required>
+              <option value="" disabled selected>Select company or unit</option>
+              <option>Company A</option>
+              <option>Company B</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="evaluator_name" class="form-label">Evaluator</label>
+            <input type="text" class="form-control" id="evaluator_name" placeholder="Person or organization"
+              value="Internal Security Team" required>
+          </div>
+          <div class="mb-3">
+            <label for="evaluation_date" class="form-label">Evaluation Date</label>
+            <input type="date" class="form-control" id="evaluation_date" value="2025-04-10" required>
+          </div>
+          <div class="mb-3">
+            <label for="report_summary" class="form-label">Summary of Findings</label>
+            <textarea class="form-control" id="report_summary" rows="3" placeholder="Short summary of findings"
+              required>Overall compliance strong: 6 of 8 sections complete, improvements needed in Threat Intelligence and Supply Chain.</textarea>
+          </div>
+
+          <!-- Section Flags -->
+          <h4>Section Completion Flags</h4>
+          <div class="mb-3">
+            <label class="form-label" for="vulnerability_section_status">Vulnerability Section</label>
+            <select class="form-select" id="vulnerability_section_status" required>
+              <option>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="threat_intelligence_status">Threat Intelligence Section</label>
+            <select class="form-select" id="threat_intelligence_status" required>
+              <option>Complete</option>
+              <option>In Progress</option>
+              <option selected>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="business_continuity_status">Business Continuity Section</label>
+            <select class="form-select" id="business_continuity_status" required>
+              <option selected>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="network_security_status">Network Security Section</label>
+            <select class="form-select" id="network_security_status" required>
+              <option selected>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="incident_response_status">Incident Response Section</label>
+            <select class="form-select" id="incident_response_status" required>
+              <option selected>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="supply_chain_status">Supply Chain Section</label>
+            <select class="form-select" id="supply_chain_status" required>
+              <option>Complete</option>
+              <option>In Progress</option>
+              <option selected>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="security_measures_status">Security Measures Section</label>
+            <select class="form-select" id="security_measures_status" required>
+              <option selected>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="staff_training_status">Staff Training Section</label>
+            <select class="form-select" id="staff_training_status" required>
+              <option selected>Complete</option>
+              <option>In Progress</option>
+              <option>Missing</option>
+            </select>
+          </div>
+
+          <!-- Uploads & Reports -->
+          <h4>Uploads & Reports</h4>
+          <div class="mb-3">
+            <label for="evaluation_report_file" class="form-label">Evaluation Report (PDF)</label>
+            <input type="file" class="form-control" id="evaluation_report_file" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="appendices_or_evidence" class="form-label">Supporting Files</label>
+            <input type="file" class="form-control" id="appendices_or_evidence">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>In Review</option>
+              <option>Draft</option>
+              <option>Archived</option>
+            </select>
+          </div>
+
+          <!-- Review & Tracking -->
+          <h4>Review & Tracking</h4>
+          <div class="mb-3">
+            <label for="reviewed_by" class="form-label">Reviewed By</label>
+            <input type="text" class="form-control" id="reviewed_by" placeholder="Final reviewer (e.g., CISO)"
+              value="CISO" required>
+          </div>
+          <div class="mb-3">
+            <label for="reviewed_at" class="form-label">Review Date</label>
+            <input type="date" class="form-control" id="reviewed_at" value="2025-04-15" required>
+          </div>
+          <div class="mb-3">
+            <label for="next_evaluation_due" class="form-label">Next Evaluation Due</label>
+            <input type="date" class="form-control" id="next_evaluation_due" value="2025-07-01">
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_required" class="form-label">Follow-Up Required</label>
+            <select class="form-select" id="follow_up_required" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_notes" class="form-label">Follow-Up Notes</label>
+            <textarea class="form-control" id="follow_up_notes" rows="2"
+              placeholder="Improvement plan or comments">Update threat intelligence integration process.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

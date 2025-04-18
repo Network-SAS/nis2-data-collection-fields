@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Threat Intelligence - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link active" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <h2>Threat Intelligence</h2>
+        <form>
+          <!-- Threat Details -->
+          <h4>Threat Intelligence Details</h4>
+          <div class="mb-3">
+            <label for="id" class="form-label">Record ID</label>
+            <input type="text" class="form-control" id="id" placeholder="Auto-generated ID" required>
+          </div>
+          <div class="mb-3">
+            <label for="source_name" class="form-label">Source Name</label>
+            <input type="text" class="form-control" id="source_name" placeholder="Name of feed or source"
+              value="CERT-EU STIX Feed" required>
+          </div>
+          <div class="mb-3">
+            <label for="source_type" class="form-label">Source Type</label>
+            <select class="form-select" id="source_type" required>
+              <option value="" disabled selected>Select type</option>
+              <option>Public Feed</option>
+              <option>Commercial Feed</option>
+              <option>Internal SOC</option>
+              <option>Government Alert</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="subscribed_since" class="form-label">Subscribed Since</label>
+            <input type="date" class="form-control" id="subscribed_since" value="2024-01-01" required>
+          </div>
+          <div class="mb-3">
+            <label for="update_frequency" class="form-label">Update Frequency</label>
+            <select class="form-select" id="update_frequency" required>
+              <option value="" disabled selected>Select frequency</option>
+              <option>Real-time</option>
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>On-demand</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="covered_threat_types" class="form-label">Covered Threat Types</label>
+            <select class="form-select" id="covered_threat_types" multiple required>
+              <option selected>Malware</option>
+              <option selected>Phishing</option>
+              <option>Zero-day</option>
+              <option>APT</option>
+              <option>Ransomware</option>
+              <option>Insider Threats</option>
+            </select>
+          </div>
+
+          <!-- Integration -->
+          <h4>Integration</h4>
+          <div class="mb-3">
+            <label for="platform_or_tool" class="form-label">Platform or Tool Used</label>
+            <input type="text" class="form-control" id="platform_or_tool" placeholder="Platform for threat intel"
+              value="MISP" required>
+          </div>
+          <div class="mb-3">
+            <label for="automated_alerts" class="form-label">Automated Alerts?</label>
+            <select class="form-select" id="automated_alerts" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="correlation_enabled" class="form-label">SIEM Integration?</label>
+            <select class="form-select" id="correlation_enabled" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="internal_sharing" class="form-label">Shared Internally?</label>
+            <select class="form-select" id="internal_sharing" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>Partially</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="external_sharing_policy" class="form-label">External Sharing Policy</label>
+            <select class="form-select" id="external_sharing_policy" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>Only with CERT</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="used_for_decision_making" class="form-label">Informs Decisions?</label>
+            <select class="form-select" id="used_for_decision_making" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <!-- Governance -->
+          <h4>Governance</h4>
+          <div class="mb-3">
+            <label for="reviewed_by" class="form-label">Reviewed By</label>
+            <input type="text" class="form-control" id="reviewed_by" placeholder="Reviewer (e.g., SOC Lead)"
+              value="SOC Lead" required>
+          </div>
+          <div class="mb-3">
+            <label for="last_reviewed_at" class="form-label">Last Reviewed Date</label>
+            <input type="date" class="form-control" id="last_reviewed_at" value="2025-04-01" required>
+          </div>
+          <div class="mb-3">
+            <label for="follow_up_required" class="form-label">Follow-Up Required?</label>
+            <select class="form-select" id="follow_up_required" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="next_review_date" class="form-label">Next Review Date</label>
+            <input type="date" class="form-control" id="next_review_date" value="2025-10-01">
+          </div>
+
+          <!-- Uploads -->
+          <h4>Uploads</h4>
+          <div class="mb-3">
+            <label for="policy_document" class="form-label">Threat Intel Policy (PDF)</label>
+            <input type="file" class="form-control" id="policy_document" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="sample_alert_report" class="form-label">Sample Alert Report (PDF)</label>
+            <input type="file" class="form-control" id="sample_alert_report" accept=".pdf">
+          </div>
+          <div class="mb-3">
+            <label for="certificate_status" class="form-label">Certificate Status</label>
+            <select class="form-select" id="certificate_status" required>
+              <option value="" disabled selected>Select status</option>
+              <option>Verified</option>
+              <option>Not Validated</option>
+              <option>Pending Review</option>
+            </select>
+          </div>
+
+          <!-- Notes / Tracking -->
+          <h4>Notes / Tracking</h4>
+          <div class="mb-3">
+            <label for="internal_notes" class="form-label">Internal Notes</label>
+            <textarea class="form-control" id="internal_notes" rows="2"
+              placeholder="Additional comments">Feed integrated into SIEM; monitoring ongoing.</textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

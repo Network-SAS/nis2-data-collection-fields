@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evaluation & Reports - NIS2 Data Collection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qO PnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Styles for the risk table */
+    .rischio-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .rischio-table th,
+    .rischio-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .rischio-table th {
+      background-color: #f0f0f0;
+    }
+
+    .rischio-table td {
+      font-weight: bold;
+    }
+
+    .verde {
+      background-color: #e6fffa;
+      /* Very light green */
+      color: #006400;
+    }
+
+    .verde-chiaro {
+      background-color: #b2f5d0;
+      /* Light green */
+      color: #006400;
+    }
+
+    .giallo-chiaro {
+      background-color: #fef08a;
+      /* Light yellow */
+      color: #6b5e00;
+    }
+
+    .giallo {
+      background-color: #fde047;
+      /* Yellow */
+      color: #854d0e;
+    }
+
+    .arancione {
+      background-color: #fdb44b;
+      /* Orange */
+      color: #9a3412;
+    }
+
+    .rosso-chiaro {
+      background-color: #fca5a5;
+      /* Light red */
+      color: #991b1b;
+    }
+
+    .rosso {
+      background-color: #f87171;
+      /* Red */
+      color: #991b1b;
+    }
+
+    .rosso-scuro {
+      background-color: #b91c1c;
+      /* Dark red */
+      color: #fff;
+    }
+
+    .evidenziato {
+      border: 4px solid rgb(182, 240, 25);
+      /* Thicker and colored border */
+    }
+
+    .circle {
+      border: 2px solid black;
+      border-radius: 50%;
+      line-height: 1.5em;
+      display: inline-block;
+      width: 1.8em;
+      height: 1.8em;
+    }
+
+    .circleBlue {
+      border: 2px solid rgb(42, 17, 184);
+      border-radius: 50%;
+      line-height: 1.5em;
+      display: inline-block;
+      width: 1.8em;
+      height: 1.8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-12 col-md-3 col-lg-2 bg-light p-3">
+        <h5>NIS2 Modules</h5>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="data_handlers.html">Data Handlers</a></li>
+          <li class="nav-item"><a class="nav-link" href="computers.html">Computers</a></li>
+          <li class="nav-item"><a class="nav-link" href="risk_impact_assessment.html">Risk & Impact Assessment</a></li>
+          <li class="nav-item"><a class="nav-link" href="security_measures.html">Security Measures</a></li>
+          <li class="nav-item"><a class="nav-link" href="incident_management.html">Incident Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="supply_chain_security.html">Supply Chain Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="business_continuity.html">Business Continuity</a></li>
+          <li class="nav-item"><a class="nav-link" href="training_awareness.html">Training & Awareness</a></li>
+          <li class="nav-item"><a class="nav-link" href="threat_intelligence.html">Threat Intelligence</a></li>
+          <li class="nav-item"><a class="nav-link" href="audit_logs_monitoring.html">Audit Logs & Monitoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="compliance_documents.html">Compliance Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluation_nis2.html">Evaluation NIS-2</a></li>
+          <li class="nav-item"><a class="nav-link active" href="evaluation_reports.html">Evaluation & Reports</a></li>
+        </ul>
+      </nav>
+      <main class="col-12 col-md-9 col-lg-10 py-3">
+        <main class="bg-white shadow-md rounded-md p-6 flex-grow">
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <header class="mb-4">
+              <h1 class="text-3xl font-semibold text-gray-800">NIS2 Assessment</h1>
+              <p class="text-gray-600">Sotto i rischi valutati per l'azienda ABC.<br>
+                La valutazione del rischio è un processo che consente di identificare, valutare e gestire i rischi che
+                possono
+                influenzare il raggiungimento degli obiettivi di un'organizzazione.</p>
+              <p class="text-gray-700 mt-4 text-md">
+                If you want to keep the formula R = P × D, <br>you can introduce a reduction coefficient based on the
+                measures
+                in place:
+                R=(P×D)×FM<br>
+                Where:<br>
+                FM &lt; 1 if the measures are effective.<br>
+                FM = 1 if there are no mitigations.<br>
+                FM &gt; 1 if the measures introduced are ineffective or increase the risk (rare case).<br>
+                Example: P = 4, D = 5,<br>
+                FM = 0.5 for medium mitigation.<br>
+                R = (4 × 5) × 0.5 = 10.
+              </p>
+            </header>
+          </div>
+          <!-- Card 1: Vulnerability Assessment & Penetration Testing -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Vulnerability Assessment &amp; Penetration Testing"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Vulnerability Assessment &amp; Penetration Testing assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-shield-halved text-blue-500"></i> <i class="fa-solid fa-bug text-red-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_vulnerability" class="block text-sm font-medium text-gray-700 mb-1">Risk
+                      Value</label>
+                    <input type="number" id="risk_vulnerability" name="risk_vulnerability" value="3" min="0" max="5"
+                      step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_vulnerability" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_vulnerability" id="impact_vulnerability"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_vulnerability"
+                      class="block text-sm font-medium text-gray-700 mb-1">Mitigation Factor
+                      (FM)</label>
+                    <select name="mitigation_vulnerability" id="mitigation_vulnerability"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Continuous Penetration Testing (0.1)</option>
+                      <option value="0.2">Bug Bounty Program (0.2)</option>
+                      <option value="0.3" selected="">Regular Automated Scans (0.3)</option>
+                      <option value="0.4">Quarterly Security Audits (0.4)</option>
+                      <option value="0.5">Secure Code Review (0.5)</option>
+                      <option value="0.6">Developer Training (0.6)</option>
+                      <option value="0.7">Patch Management Process (0.7)</option>
+                      <option value="0.8">Annual Penetration Test (0.8)</option>
+                      <option value="0.9">Basic Vulnerability Scans (0.9)</option>
+                      <option value="1">Ad-hoc Testing Only (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Vulnerability Assessment &amp; Penetration
+                    Testing Risk
+                    Description</h3>
+                  <textarea id="desc_vulnerability"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Vulnerability assessments and penetration testing help identify weaknesses in systems before attackers can exploit them.
+                                        These proactive measures ensure that security gaps are found and addressed, reducing the likelihood of a successful breach.
+                                        Without regular testing, hidden vulnerabilities may persist and pose significant risks to the organization.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_vulnerability">3 x 4 =
+                      12</span></em></p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_vulnerability">12 x 0.3 = 3.6</span></em>
+                </p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2: Threat Intelligence & Security Awareness -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Threat Intelligence &amp; Security Awareness"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Threat Intelligence &amp; Security Awareness assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-lightbulb text-yellow-500"></i> <i class="fa-solid fa-eye text-blue-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_threat" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_threat" name="risk_threat" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_threat" class="block text-sm font-medium text-gray-700 mb-1">Impact Value</label>
+                    <select name="impact_threat" id="impact_threat"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_threat" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_threat" id="mitigation_threat"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Comprehensive Threat Intel Platform (0.1)</option>
+                      <option value="0.2">Regular Security Training (0.2)</option>
+                      <option value="0.3" selected="">Phishing Simulation Exercises (0.3)</option>
+                      <option value="0.4">Intelligence Sharing Network (0.4)</option>
+                      <option value="0.5">Real-time Alerting System (0.5)</option>
+                      <option value="0.6">Security Newsletter Updates (0.6)</option>
+                      <option value="0.7">Annual Awareness Training (0.7)</option>
+                      <option value="0.8">Basic Threat Feeds (0.8)</option>
+                      <option value="0.9">Occasional Security Briefings (0.9)</option>
+                      <option value="1">No Awareness Program (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Threat Intelligence &amp; Security Awareness Risk
+                    Description</h3>
+                  <textarea id="desc_threat"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Threat intelligence involves gathering information about potential cyber threats to prepare effective defenses.
+                                        Security awareness training ensures employees understand and follow cybersecurity best practices.
+                                        Together, they help the organization stay informed about emerging threats and foster a vigilant, security-conscious culture among staff.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_threat">3 x 4 =
+                      12</span></em>
+                </p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_threat">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3: Business Continuity & Disaster Recovery -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Business Continuity &amp; Disaster Recovery"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Business Continuity &amp; Disaster Recovery assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-sync text-blue-500"></i> <i class="fa-solid fa-database text-green-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_continuity" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_continuity" name="risk_continuity" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_continuity" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_continuity" id="impact_continuity"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_continuity" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_continuity" id="mitigation_continuity"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Fully Redundant Systems (0.1)</option>
+                      <option value="0.2">Real-time Data Replication (0.2)</option>
+                      <option value="0.3" selected="">Regular DR Drills (0.3)</option>
+                      <option value="0.4">Comprehensive Continuity Plan (0.4)</option>
+                      <option value="0.5">Cloud Backup Solutions (0.5)</option>
+                      <option value="0.6">Off-site Backups (0.6)</option>
+                      <option value="0.7">Backup Power &amp; Systems (0.7)</option>
+                      <option value="0.8">Basic Backup Plan (0.8)</option>
+                      <option value="0.9">Untested Recovery Plan (0.9)</option>
+                      <option value="1">No BCP/DR Plan (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Business Continuity &amp; Disaster Recovery Risk
+                    Description</h3>
+                  <textarea id="desc_continuity"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Business continuity and disaster recovery planning ensure that critical operations can continue during and after disruptive incidents.
+                                        This involves strategies like data backups, redundant systems, and documented recovery procedures to minimize downtime.
+                                        Effective BC/DR plans reduce the impact of disasters on the organization and speed up recovery.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_continuity">3 x 4 =
+                      12</span></em></p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_continuity">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4: Network & Information Security -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Network &amp; Information Security"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Network &amp; Information Security assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-lock text-green-500"></i> <i class="fa-solid fa-network-wired text-blue-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_network" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_network" name="risk_network" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_network" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_network" id="impact_network"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_network" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_network" id="mitigation_network"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Zero Trust Implementation (0.1)</option>
+                      <option value="0.2">Next-Gen Firewall (0.2)</option>
+                      <option value="0.3" selected="">Intrusion Detection/Prevention (0.3)</option>
+                      <option value="0.4">Network Segmentation (0.4)</option>
+                      <option value="0.5">Endpoint Protection (0.5)</option>
+                      <option value="0.6">Encrypted Data Transfers (0.6)</option>
+                      <option value="0.7">Secure Configurations (0.7)</option>
+                      <option value="0.8">Basic Firewall Only (0.8)</option>
+                      <option value="0.9">Antivirus Only (0.9)</option>
+                      <option value="1">No Network Security (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Network &amp; Information Security Risk
+                    Description</h3>
+                  <textarea id="desc_network"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Network and information security protects an organization's systems and data from unauthorized access or cyberattacks.
+                                        It includes measures like firewalls, encryption, intrusion detection systems, and secure network configurations.
+                                        Strong network security controls help prevent data breaches and maintain the confidentiality and integrity of information.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_network">3 x 4 =
+                      12</span></em>
+                </p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_network">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5: Incident Response & Risk Management -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Incident Response &amp; Risk Management"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Incident Response &amp; Risk Management assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-exclamation-triangle text-yellow-500"></i> <i
+                  class="fa-solid fa-bolt text-red-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_incident" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_incident" name="risk_incident" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_incident" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_incident" id="impact_incident"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_incident" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_incident" id="mitigation_incident"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Dedicated Response Team (0.1)</option>
+                      <option value="0.2">Detailed Incident Response Plan (0.2)</option>
+                      <option value="0.3" selected="">Regular Incident Drills (0.3)</option>
+                      <option value="0.4">Post-Incident Analysis (0.4)</option>
+                      <option value="0.5">Cyber Insurance (0.5)</option>
+                      <option value="0.6">Incident Response Training (0.6)</option>
+                      <option value="0.7">Basic IR Plan Documented (0.7)</option>
+                      <option value="0.8">Ad-hoc Response Approach (0.8)</option>
+                      <option value="0.9">Limited Risk Monitoring (0.9)</option>
+                      <option value="1">No IR/Risk Plan (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Incident Response &amp; Risk Management Risk
+                    Description
+                  </h3>
+                  <textarea id="desc_incident"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Incident response is the process of reacting to and managing cybersecurity breaches or attacks, aiming to minimize damage and recovery time.
+                                        Risk management involves identifying and mitigating potential threats before incidents occur.
+                                        Together, they enable organizations to handle incidents efficiently and reduce the overall impact of security events.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_incident">3 x 4 =
+                      12</span></em></p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_incident">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6: Supply Chain & Third-Party Security -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Supply Chain &amp; Third-Party Security"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Supply Chain &amp; Third-Party Security assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-truck text-gray-700"></i> <i class="fa-solid fa-handshake text-green-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_supply" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_supply" name="risk_supply" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_supply" class="block text-sm font-medium text-gray-700 mb-1">Impact Value</label>
+                    <select name="impact_supply" id="impact_supply"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_supply" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_supply" id="mitigation_supply"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Comprehensive Vendor Assessments (0.1)</option>
+                      <option value="0.2">Strict Third-Party Contracts (0.2)</option>
+                      <option value="0.3" selected="">Continuous Supplier Monitoring (0.3)</option>
+                      <option value="0.4">Regular Security Audits of Vendors (0.4)</option>
+                      <option value="0.5">Backup Supplier Options (0.5)</option>
+                      <option value="0.6">Third-Party Security Training (0.6)</option>
+                      <option value="0.7">Basic Supplier Vetting (0.7)</option>
+                      <option value="0.8">Limited Third-Party Checks (0.8)</option>
+                      <option value="0.9">Unverified Suppliers (0.9)</option>
+                      <option value="1">No Supplier Security Checks (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Supply Chain &amp; Third-Party Security Risk
+                    Description
+                  </h3>
+                  <textarea id="desc_supply"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Supply chain and third-party security focuses on managing risks that come from vendors, suppliers, and business partners.
+                                        If a partner with network access has weak security, it can become a pathway for threats.
+                                        By vetting third-party security practices, setting strict contractual requirements, and regularly monitoring suppliers, an organization can reduce the risk introduced by external parties.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_supply">3 x 4 =
+                      12</span></em>
+                </p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_supply">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 7: Implemented Security Measures -->
+          <div class="bg-gray-50 rounded-md p-6 mb-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Implemented Security Measures"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Implemented Security Measures assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-tools text-gray-700"></i> <i class="fa-solid fa-check-circle text-green-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_measures" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_measures" name="risk_measures" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_measures" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_measures" id="impact_measures"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_measures" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_measures" id="mitigation_measures"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Robust Security Framework (0.1)</option>
+                      <option value="0.2">ISO 27001 Certification (0.2)</option>
+                      <option value="0.3" selected="">Regular Security Audits (0.3)</option>
+                      <option value="0.4">24/7 SOC Monitoring (0.4)</option>
+                      <option value="0.5">Strong Access Controls (0.5)</option>
+                      <option value="0.6">Data Encryption (0.6)</option>
+                      <option value="0.7">Basic Security Policies (0.7)</option>
+                      <option value="0.8">Outdated Protections (0.8)</option>
+                      <option value="0.9">Minimal Monitoring (0.9)</option>
+                      <option value="1">No Security Measures (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Implemented Security Measures Risk Description
+                  </h3>
+                  <textarea id="desc_measures"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Implemented security measures are the existing safeguards and controls within the organization.
+                                        These include technical solutions (like firewalls and antivirus software) as well as policies and procedures.
+                                        Regularly reviewing and updating these measures ensures they remain effective and can reveal gaps where additional protections might be needed.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_measures">3 x 4 =
+                      12</span></em></p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_measures">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Card 8: Staff Training -->
+          <div class="bg-gray-50 rounded-md p-6">
+            <div class="p-4 rounded-lg bg-white shadow-md">
+              <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                <input type="text" value="Staff Training"
+                  class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              </h2>
+              <p class="text-gray-700 leading-relaxed">
+                Staff Training assessment for ABC Company.<br>
+                This is an example text for this section. Use FontAwesome icons to visually enhance your content. For
+                example:
+                <i class="fa-solid fa-graduation-cap text-blue-500"></i> <i
+                  class="fa-solid fa-chalkboard-user text-green-500"></i>
+              </p>
+              <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/2 flex flex-col">
+                  <div class="mt-4">
+                    <label for="risk_training" class="block text-sm font-medium text-gray-700 mb-1">Risk Value</label>
+                    <input type="number" id="risk_training" name="risk_training" value="3" min="0" max="5" step="1"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                  </div>
+                  <div class="mt-4">
+                    <label for="impact_training" class="block text-sm font-medium text-gray-700 mb-1">Impact
+                      Value</label>
+                    <select name="impact_training" id="impact_training"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">Negligible (0)</option>
+                      <option value="1">Very Low (1)</option>
+                      <option value="2">Low (2)</option>
+                      <option value="3">Medium (3)</option>
+                      <option value="4" selected="">High (4)</option>
+                      <option value="5">Very High (5)</option>
+                    </select>
+                  </div>
+                  <div class="mt-4">
+                    <label for="mitigation_training" class="block text-sm font-medium text-gray-700 mb-1">Mitigation
+                      Factor
+                      (FM)</label>
+                    <select name="mitigation_training" id="mitigation_training"
+                      class="w-full bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+                      <option value="0">None (0)</option>
+                      <option value="0.1">Frequent Training Sessions (0.1)</option>
+                      <option value="0.2">Interactive Workshops (0.2)</option>
+                      <option value="0.3" selected="">Phishing Drill Programs (0.3)</option>
+                      <option value="0.4">Security Certification Programs (0.4)</option>
+                      <option value="0.5">Annual Refresher Training (0.5)</option>
+                      <option value="0.6">Policy Handbook Distribution (0.6)</option>
+                      <option value="0.7">Basic Onboarding Training (0.7)</option>
+                      <option value="0.8">Informal Guidance Only (0.8)</option>
+                      <option value="0.9">One-time Training Only (0.9)</option>
+                      <option value="1">No Training Provided (1)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:w-1/2 mt-4 md:mt-0 ml-4">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2">Staff Training Risk Description</h3>
+                  <textarea id="desc_training"
+                    class="w-full h-40 bg-blue-100 border border-blue-300 text-blue-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">Staff cybersecurity training educates employees about security policies, procedures, and best practices.
+                                        Well-trained staff are more likely to recognize and avoid threats such as phishing attempts or unsafe behaviors.
+                                        Ongoing training programs keep security awareness high and ensure that personnel can play their part in protecting the organization.</textarea>
+                </div>
+              </div>
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Risk Assessment Table</h4>
+                <p class="mt-2 text-gray-700"><em>Valutazione: Rischio x Impatto = <span id="val_training">3 x 4 =
+                      12</span></em></p>
+                <p class="mt-2 text-gray-700"><em>Mitigation: <span id="mit_training">12 x 0.3 = 3.6</span></em></p>
+                <table class="rischio-table">
+                  <tbody>
+                    <tr>
+                      <th>Impact / Risk</th>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td class="verde">1</td>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">5</td>
+                    </tr>
+                    <tr>
+                      <th>2</th>
+                      <td class="verde">2</td>
+                      <td class="verde-chiaro">4</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">10</td>
+                    </tr>
+                    <tr>
+                      <th>3</th>
+                      <td class="verde-chiaro">3</td>
+                      <td class="giallo-chiaro">6</td>
+                      <td class="giallo">9</td>
+                      <td class="arancione"><span class="circle">12</span></td>
+                      <td class="rosso-chiaro">15</td>
+                    </tr>
+                    <tr>
+                      <th>4</th>
+                      <td class="giallo-chiaro">4</td>
+                      <td class="giallo">8</td>
+                      <td class="arancione">12</td>
+                      <td class="rosso-chiaro">16</td>
+                      <td class="rosso">20</td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td class="giallo">5</td>
+                      <td class="arancione">10</td>
+                      <td class="rosso-chiaro">15</td>
+                      <td class="rosso">20</td>
+                      <td class="rosso-scuro">25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Update risk calculations dynamically
+    function updateRisk() {
+      const categories = ['vulnerability', 'threat', 'continuity', 'network', 'incident', 'supply', 'measures', 'training'];
+      categories.forEach(cat => {
+        const P = parseInt(document.getElementById('risk_' + cat).value) || 0;
+        const D = parseInt(document.getElementById('impact_' + cat).value) || 0;
+        const FM = parseFloat(document.getElementById('mitigation_' + cat).value) || 0;
+        const R0 = P * D;
+        const RfinalExact = R0 * FM;
+        const Rfinal = Math.round(RfinalExact * 10) / 10;
+        const RfinalText = (Rfinal % 1 === 0) ? Rfinal.toFixed(0) : Rfinal.toFixed(1);
+        document.getElementById('val_' + cat).innerText = P + ' x ' + D + ' = ' + R0;
+        document.getElementById('mit_' + cat).innerText = R0 + ' x ' + FM + ' = ' + RfinalText;
+      });
+    }
+    // Attach event listeners to inputs and selects
+    document.querySelectorAll('input[type="number"], select').forEach(el => {
+      el.addEventListener('input', updateRisk);
+      el.addEventListener('change', updateRisk);
+    });
+    // Initial calculation on page load
+    updateRisk();
+  </script>
+</body>
+
+
+</html>
